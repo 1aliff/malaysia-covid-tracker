@@ -1,9 +1,4 @@
-import { 
-    Grid,
-    Card,
-    CardContent,
-    Typography
- } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography } from '@material-ui/core';
 
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { makeStyles } from '@material-ui/core/styles';
@@ -60,8 +55,10 @@ const cardColor = {
 
 function Cards(props) {
     const classes = useStyles();
-    // console.log('what is props: ', props.data)
-    
+
+    const { data : { confirmed, confirmedDaily, active, activeDaily, recovered, recoveredDaily, death, deathDaily, dateLastUpdated}} = props
+
+    // handle async data //
     if(!props.data.confirmed) {
         return "We are getting data.."
     }
@@ -77,14 +74,14 @@ function Cards(props) {
                         <Typography variant="h4" component="h2" style={caseColor.confirmed}>
                             <CountUp 
                                 start={0}
-                                end={props.data.confirmed}
+                                end={confirmed}
                                 duration={2.5}
                                 separator=","
                             />
-                        { props.data.confirmedDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {props.data.confirmedDaily}</p></div>: "" }
+                        { confirmedDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {confirmedDaily}</p></div>: "" }
                         </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                            Last updated: {moment(props.data.dateLastUpdated).format("DD/MM/YYYY hh:mm")}
+                            Last updated: {moment(dateLastUpdated).format("DD/MM/YYYY hh:mm")}
                         </Typography>
                         <br />
                         <Typography variant="body2" component="p"> Number of confirmed cases as of today. <br /></Typography>
@@ -101,14 +98,14 @@ function Cards(props) {
                             <Typography variant="h4" component="h2" style={caseColor.active}>
                                 <CountUp 
                                     start={0}
-                                    end={props.data.active}
+                                    end={active}
                                     duration={2.5}
                                     separator=","
                             />
-                            { props.data.activeDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {props.data.activeDaily}</p></div>: "" }
+                            { activeDaily ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {activeDaily}</p></div>: "" }
                             </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                            Last updated: {moment(props.data.dateLastUpdated).format("DD/MM/YYYY hh:mm")}
+                            Last updated: {moment(dateLastUpdated).format("DD/MM/YYYY hh:mm")}
                         </Typography>
                         <br />
                         <Typography variant="body2" component="p"> Number of active cases for today. <br /></Typography>
@@ -124,14 +121,14 @@ function Cards(props) {
                         <Typography variant="h4" component="h2" style={caseColor.recovered}>
                             <CountUp 
                                 start={0}
-                                end={props.data.recovered}
+                                end={recovered}
                                 duration={2.5}
                                 separator=","
                             />
-                        { props.data.recoveredDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {props.data.recoveredDaily}</p></div>: "" }
+                        { recoveredDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {recoveredDaily}</p></div>: "" }
                         </Typography>
                         <Typography variant="subtitle2"color="textSecondary">
-                            Last updated: {moment(props.data.dateLastUpdated).format("DD/MM/YYYY hh:mm")}
+                            Last updated: {moment(dateLastUpdated).format("DD/MM/YYYY hh:mm")}
                         </Typography>
                         <br />
                         <Typography variant="body2" component="p"> Number of recovered cases for today. <br /></Typography>
@@ -147,14 +144,14 @@ function Cards(props) {
                         <Typography variant="h4" component="h2" style={caseColor.death}>
                             <CountUp 
                                 start={0}
-                                end={props.data.death}
+                                end={death}
                                 duration={2.5}
                                 separator=","
                             />
-                        { props.data.deathDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {props.data.deathDaily}</p></div>: "" }
+                        { deathDaily >= 0 ? <div style={div.newCase}><ArrowDropUpIcon /> <p style={caseColor.activeDaily}> {deathDaily}</p></div>: "" }
                         </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                            Last updated: {moment(props.data.dateLastUpdated).format("DD/MM/YYYY hh:mm")}
+                            Last updated: {moment(dateLastUpdated).format("DD/MM/YYYY hh:mm")}
                         </Typography>
                         <br />
                         <Typography variant="body2" component="p"> Number of death cases for today. <br /></Typography>

@@ -9,30 +9,25 @@ import Chart from './components/Chart/Chart.jsx';
 class App extends React.Component {
     state = {
         cardData: [],
-        chartData : [],
     }
 
-// getting data from API index.js
 async componentDidMount() {
     const finalizedData = await getData();
     this.setState({ cardData: finalizedData })
 
-    const finalizedChartData = await getHighChartData();
-    this.setState({ chartData : finalizedChartData })
+    // temp comment this
+    // const finalizedChartData = await getHighChartData();
+    // this.setState({ chartData : finalizedChartData })
 }
 
 render() {
-    const { cardData, chartData } = this.state;
+    const { cardData } = this.state;
 
         return (
             <>
                 <Header />
-                <Cards 
-                    data={cardData}
-                />
-                <Chart 
-                    data={cardData}
-                />
+                <Cards data={cardData} />
+                <Chart data={cardData} />
             </>
         )
     }

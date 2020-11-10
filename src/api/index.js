@@ -28,24 +28,25 @@ export const getData = async() => {
         return finalizedData;
 
     } catch (error) {
-
+        alert(error);
     }
 }
 
-export const getHighChartData = async() => {
-    try {
-        const res = await axios.get(url);
+// temp comment
+// export const getHighChartData = async() => {
+//     try {
+//         const res = await axios.get(url);
 
-        // Data to feed into HighCharts usage
-        const finalizedChartData = {
-            confirmed: _.map(res.data, "Confirmed"),
-            recovered: _.map(res.data, "Recovered"),
-            date: _.map(res.data, "Date")
-        }
+//         // Data to feed into HighCharts usage
+//         const finalizedChartData = {
+//             confirmed: _.map(res.data, "Confirmed"),
+//             recovered: _.map(res.data, "Recovered"),
+//             date: _.map(res.data, "Date")
+//         }
 
-        return finalizedChartData
+//         return finalizedChartData
 
-    } catch(error){
+//     } catch(error){
 
-    }
-}
+//     }
+// }
