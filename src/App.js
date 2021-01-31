@@ -1,36 +1,27 @@
-import React from 'react';
 
-import { getData, getHighChartData } from './api'
+import React, { useState, useEffect } from 'react'
+import { Header, Cards, Charts } from './components/index'
+import { getData } from './api'
 
-import Header from './components/Header/Header.jsx';
-import Cards from './components/Cards/Cards.jsx';
-import Chart from './components/Chart/Chart.jsx';
+const App = () => {
+    const [data, setData] = useState();
+    
+    useEffect(() => {
+        fetchData()
+    }, [])
 
-class App extends React.Component {
-    state = {
-        cardData: [],
+    const fetchData = async () => {
+        const result = await getData();
+        setData(result);
     }
 
-async componentDidMount() {
-    const finalizedData = await getData();
-    this.setState({ cardData: finalizedData })
-
-    // temp comment this
-    // const finalizedChartData = await getHighChartData();
-    // this.setState({ chartData : finalizedChartData })
+    return (
+        <>
+            <Header />
+            <Cards data={data} />
+            <Charts data={data} />
+        </>
+    )
 }
 
-render() {
-    const { cardData } = this.state;
-
-        return (
-            <>
-                <Header />
-                <Cards data={cardData} />
-                <Chart data={cardData} />
-            </>
-        )
-    }
-}
-
-export default App;
+export default App

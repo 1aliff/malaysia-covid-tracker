@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Grid, Typography, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,29 +14,25 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Chart(props) {
+//  temp: coming is actually props value
+function Chart(coming) {
     const classes = useStyles();
     
-    // state hooks
     const [displayChart, setDisplayChart] = useState(false)
     const [buttonTitle, setButtonTitle] = useState('View in Chart')
 
-    //decons data from props
-    const { data : { recovered, confirmed, active }} = props
+    const { data : { recovered, confirmed, active }} = coming
 
     // assign data for recharts
-    const chartData = [
-        {
+    const chartData = [{
             recovered: recovered, 
             confirmed: confirmed, 
             active: active 
-        },
-    ];
-    
+    }];
+
     function handleClick() {
         setDisplayChart(!displayChart)
         !displayChart ? setButtonTitle('Close chart') : setButtonTitle('View in Chart')
-
     }
 
     return (
@@ -65,7 +59,6 @@ function Chart(props) {
                     </Grid>
                 </Grid> : null 
             }
-
         </div>
     )
 }

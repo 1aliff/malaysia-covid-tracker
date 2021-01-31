@@ -1,13 +1,11 @@
 import { Grid, Card, CardContent, Typography } from '@material-ui/core';
-
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { makeStyles } from '@material-ui/core/styles';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 import CountUp from 'react-countup';
 import moment from 'moment'
 
-// styling
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
       flexGrow: 1,
     }
@@ -53,13 +51,13 @@ const cardColor = {
     }
 }
 
-function Cards(props) {
+// for temp: coming is actually props value
+function Cards(coming) {
     const classes = useStyles();
 
-    const { data : { confirmed, confirmedDaily, active, activeDaily, recovered, recoveredDaily, death, deathDaily, dateLastUpdated}} = props
+    const { data : { confirmed, confirmedDaily, active, activeDaily, recovered, recoveredDaily, death, deathDaily, dateLastUpdated}} = coming
 
-    // handle async data //
-    if(!props.data.confirmed) {
+    if(!coming.data.confirmed) {
         return "We are getting data.."
     }
 
