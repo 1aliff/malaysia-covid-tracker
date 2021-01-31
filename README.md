@@ -1,31 +1,15 @@
-# malaysia-covid-tracker
-Just a personal project that i am interestsed, also to learn some stuff on the get go.
+# [Live Site](https://upbeat-almeida-2dce63.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/38b85caa-1fe1-44b3-9c92-16d063c6c734/deploy-status)](https://app.netlify.com/sites/hungry-lalande-d46b6f/deploys)
 
-Project able to show current total cases happening in my country, Malaysia.
-Project deployed into Netlify site. (Link below)
+# About 🦠
+- Just a personal project that i am interestsed, also to learn some stuff on the get go.
+- Project able to show current total cases happening in my country, Malaysia.
 
-Package used:
-- "@material-ui/core": "^4.11.0",
-- "@material-ui/icons": "^4.9.1",
-- "axios": "^0.21.0",
-- "classnames": "^2.2.6",
-- "lodash": "^4.17.20",
-- "moment": "^2.29.1",
-- "npm": "^6.14.8",
-- "react": "^17.0.1",
-- "react-countup": "^4.3.3",
-- "react-dom": "^17.0.1",
-- "recharts": "^1.8.5",
-
-#Installation Guide
-
-1. Clone this project to your local and run
-> npm install
-
-2. Once required package has been installed, run
-> npm start
-
-
-[Deployed site](https://upbeat-almeida-2dce63.netlify.app/)
-
-I will update this project from time to time. Thanks.
+# Dependencies
+- Material UI (Core & Icons)
+- Axios
+- Lodash
+- Moment
+- Recharts
+- React CountUp
+- [API](https://api.covid19api.com/total/country/malaysia)
