@@ -52,12 +52,11 @@ const cardColor = {
 }
 
 // for temp: coming is actually props value
-function Cards(coming) {
+function Cards({ data }) {
     const classes = useStyles();
+    const { confirmed, confirmedDaily, active, activeDaily, recovered, recoveredDaily, death, deathDaily, dateLastUpdated } = data
 
-    const { data : { confirmed, confirmedDaily, active, activeDaily, recovered, recoveredDaily, death, deathDaily, dateLastUpdated}} = coming
-
-    if(!coming.data.confirmed) {
+    if(!confirmed) {
         return "We are getting data.."
     }
 

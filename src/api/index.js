@@ -5,7 +5,9 @@ const url = 'https://api.covid19api.com/total/country/malaysia'
 
 export const getData = async() => {
     try {
-        const res = await axios.get(url);  
+        const res = await axios.get(url);
+
+        // manipulate with lodash  
         const finalizedData = {
             confirmed: _.last(_.map(res.data, "Confirmed")),
             confirmedDaily: _.last(_.map(res.data, "Confirmed")) - _.nth(_.map(res.data, "Confirmed"), -2),
@@ -21,6 +23,7 @@ export const getData = async() => {
 
             dateLastUpdated: _.last(_.map(res.data, "Date")),
         }
+        
         return finalizedData;
     } catch (error) {
         alert(error);

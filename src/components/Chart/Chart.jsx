@@ -14,14 +14,13 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-//  temp: coming is actually props value
-function Chart(coming) {
+function Chart({ data }) {
     const classes = useStyles();
     
     const [displayChart, setDisplayChart] = useState(false)
     const [buttonTitle, setButtonTitle] = useState('View in Chart')
 
-    const { data : { recovered, confirmed, active }} = coming
+    const { recovered, confirmed, active } = data
 
     // assign data for recharts
     const chartData = [{
